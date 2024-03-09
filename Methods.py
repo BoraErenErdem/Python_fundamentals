@@ -217,3 +217,27 @@ print(z)
 
 a = (1, 2, 5.6, 'daytona', 2, 54, 7,'daytona', 2)
 a.count(2)  # 2 sayısı kaç kere tekrarlanıyor ona baktık
+
+
+
+# Sözlük (Dictionary)
+
+dil = {
+        "Ali": "ingilizce",
+        "Can": "almanca",
+        "Ayşe":"fransızca"
+    }
+
+len(dil)
+
+dil["Ali"]
+dil["Can"]
+dil["Veli"]  # Sözlükte "Veli" sözcüğü yer almadığı için hata verir
+dil["Veli"] = "ispanyolca"  # Veli sözcüğü ve ispanyolca anahtarını ekledik
+dil["Ali"] = "rusça"  # Ali anahtarının değerini rusça olarak değiştirdik
+
+dil.keys()  # anahtarlar ekrana gelir
+dil.values()  # değerler ekrana gelir
+dil.items()  # hem anahtar hem değeri alırız (tuple şeklinde)
+dil.get("Ali")  # anahtarın değerini .get() kullanarakta alabiliriz
+dil.clear()  # dil sözlüğündeki bileşenlerin hepsini siler
