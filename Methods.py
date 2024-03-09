@@ -172,7 +172,6 @@ years.clear()
 
 
 
-
 website = "http://www.sadikturan.com"
 course = "Python Kursu: Baştan Sona Python Programlama Rehberiniz (40 saat)"
 len(course)
@@ -194,3 +193,27 @@ x = "Hello world"
 x.replace("w", "W")
 
 "abc"*3
+
+
+
+
+# Tuple (Demetler)
+
+# () parantez ile gösterilir.
+# değiştirilemezler
+
+x = (1, 2, 3, 4, 5)
+print(type(x))
+print(x[2])
+print(x[1:3])
+print(len(x))
+
+
+x = (1, 2, 3, 4, 5)
+y = ('bora', 'eren', 'erdem')
+z = x + y
+print(z)
+
+
+a = (1, 2, 5.6, 'daytona', 2, 54, 7,'daytona', 2)
+a.count(2)  # 2 sayısı kaç kere tekrarlanıyor ona baktık
