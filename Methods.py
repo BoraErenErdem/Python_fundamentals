@@ -241,3 +241,7 @@ dil.values()  # değerler ekrana gelir
 dil.items()  # hem anahtar hem değeri alırız (tuple şeklinde)
 dil.get("Ali")  # anahtarın değerini .get() kullanarakta alabiliriz
 dil.clear()  # dil sözlüğündeki bileşenlerin hepsini siler
+dil.__contains__("Ali")  # .contains() metodu filtrelemeye yarar
+dil.update()  # .update() metodu bir sözlüğü başka bir sözlükle güncellemek veya bir sözlüğe yeni anahtar-değer çiftleri eklemek için kullanılır
+dil.copy()  # .copy() metodu sözlüğün bir kopyasını oluşturur ve bu kopyayı yeni bir değişkene atar
+dil.pop("Ali")  # pop() metodu belirli bir anahtarı sözlükten çıkarır ve değerini döndürür. Eğer anahtar bulunamazsa, bir hata fırlatır veya belirtilen bir varsayılan değeri döndürür
