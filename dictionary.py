@@ -78,6 +78,19 @@ users = {
 
 print(users["cinarerdem"])
 print(users["cinarerdem"]["yaş"])
+
+print(users.get("boraerdem"))
+print(f' Kişi bilgisi: {users["boraerdem"]}')
+
+for i in users.items():
+    print(i)
+
+print(users.items())
+
+for i, j in users.items():
+    print(i, j)
+
+
 # endregion
 
 
@@ -142,57 +155,144 @@ for i in products:
         if 240 < i["price"] < 500:
             print(f' Ürün ismi = {i["name"]}  Fiyatı = {i["price"]}')
 
-# region Bir öğrenci veritabanı oluşturun. Her öğrencinin adı, soyadı, sınıfı ve aldığı ders notları bulunmalıdır. Yeni öğrencinin bilgilerini ekleyin ve bir öğrencinin notlarını güncelleyin. Son olarak, tüm öğrencilerin adını, soyadını ve sınıfını ekrana yazdırın.
 
-ogrenci_veritabani = {
-    'birinci öğrenci': {
-        'isim': 'Bora',
-        'soyadı': 'Erdem',
-        'sınıf': '1',
-        'notlar': {
-            'matematik': 85,
-            'fizik': 75,
-            'kimya': 55
-        }
+
+
+
+# region Example
+ogrenciler = {
+    '120': {
+        'ad': 'Ali',
+        'soyad': 'Yılmaz',
+        'telefon': '532 000 00 01'
     },
-    'ikinci öğrenci': {
-        'isim': 'Eren',
-        'soyisim': 'Kovanski',
-        'sınıf': '2',
-        'notlar': {
-            'matematik': 67,
-            'fizik': 98,
-            'kimya': 45
-        }
+    '125': {
+        'ad': 'Can',
+        'soyad': 'Korkmaz',
+        'telefon': '532 000 00 02'
     },
-    'üçüncü öğrenci': {
-        'isim': 'ahmet',
-        'soyisim': 'canikci',
-        'sınıf': '3',
-        'notlar': {
-            'matematik': 44,
-            'fizik': 56,
-            'kimya': 66
-        }
-    }
+    '128': {
+        'ad': 'Volkan',
+        'soyad': 'Yükselen',
+        'telefon': '532 000 00 03'
+    },
 }
 
-
-# Yeni bir öğrenci ekleyin
-
+# region Bilgileri verilen öğrencileri kullanıcıdan aldığınız bilgilerle dictionary içinde saklayıp güncelleyin
 yeni_ogrenci = {
-    'dördüncü öğrenci': {
-        'isim': 'Mahmut',
-        'soyadı': 'Kurt',
-        'sınıf': '4',
-        'notlar': {
-            'matematik': 45,
-            'fizik': 39,
-            'kimya': 17
-        }
+    str(input("Numara giriniz:")): {
+        'ad': str(input('Adınızı giriniz:')),
+        'soyad': str(input('Soyadınızı giriniz:')),
+        'telefon': str(input("Telefon numaranızı giriniz:"))
     }
 }
+
+ogrenciler.update(yeni_ogrenci)
+print(ogrenciler)
+# endregion
 
 
 # endregion
 
+
+# region Telefon defterindeki bilgilere kullanıcının rehberdeki kişiye ulaşmasını sağla.
+telefon_defteri = {"ahmet öz" : "0532 532 32 32",
+                    "mehmet su": "0543 543 42 42",
+                    "seda naz" : "0533 533 33 33",
+                    "eda ala"  : "0212 212 12 12"}
+
+kullanici = input("Numara sorgulamak için kişi ismi giriniz: ")
+if kullanici in telefon_defteri:
+    print(f'{kullanici} kişisinin telefon numarası: {telefon_defteri.get(kullanici)}')
+else:
+    print(f'{kullanici} kişisi listede yer almıyor...')
+# endregion
+
+
+# region Example
+sozluk = {"Bilim insanı":"Aziz Sancar", "Şair":"Mehmet Akif Ersoy", "Astronom":"Ali Kuşçu"}
+
+# region sozluk isimli sözlüğü meslekler isimli başka bir sözlüğe kopyalayınız ve ekrana yazdırınız
+meslekler = sozluk.copy()
+print(meslekler)
+# endregion
+
+
+# region sozluk isimli sözlüğün değerlerini ekrana yazdırınız.
+print(sozluk.values())
+# endregion
+
+
+# region sozluk isimli sözlüğü içi boş bir sözlük hâline getiriniz.
+sozluk.clear()
+# endregion
+
+
+# region sozluk isimli sözlüğe Matematikçi: Cahit Arf ikilisini ekleyiniz.
+sozluk["Matematikçi"] = "Cahit Arif"
+# endregion
+
+
+# region sozluk isimli sözlüğün içinde sanatçı anahtarının olup olmadığını sorgulayınız.
+# 1.Yol
+print(sozluk.get("sanatçı"))
+
+# 2.Yol
+if 'sanatçı' in sozluk:
+    print("anahtar var")
+else:
+    print("anahtar yok")
+# endregion
+
+
+# region sozluk isimli sözlüğün bilim insanı anahtarındaki değeri Canan Dağdeviren olarak değiştiriniz.
+sozluk["Bilim insanı"] = "Canan Dağdeviren"
+print(sozluk)
+# endregion
+
+
+# region  sozluk isimli sözlüğün şair anahtarı ile eşleşen değeri ekrana yazdırınız.
+# 1.Yol
+print(sozluk.get("Şair"))
+
+# 2.Yol
+print(sozluk["Şair"])
+# endregion
+
+
+# endregion
+
+
+
+# region Example
+onemli_bilgiler = {"Acil Çağrı Merkezi":"112", "Polis İmdat":"155", "Milli Eğitim Bakanlığı İletişim Merkezi":"444 0 632"}
+
+# region önemli_bilgiler isimli sözlüğün değerlerini ekrana yazdırınız.
+print(onemli_bilgiler.values())
+# endregion
+
+
+# region önemli_bilgiler isimli sözlükten Acil Çağrı Merkezi anahtarını ve değerini siliniz.
+onemli_bilgiler.pop("Acil Çağrı Merkezi")
+print(onemli_bilgiler)
+# endregion
+
+
+# region önemli_bilgiler isimli sözlükte Sağlık Bakanlığı İletişim Merkezi olup olmadığını sorgulayınız.
+#"1.Yol
+print(onemli_bilgiler.get("Sağlık Bakanlığı İletişim Merkezi"))
+
+#2.Yol
+if "Sağlık Bakanlığı İletişim Merkezi" in onemli_bilgiler:
+    print("True")
+else:
+    print("False")
+# endregion
+
+
+# region Alt alta sıralayın
+for i,j in onemli_bilgiler.items():
+    print(i,j)
+# endregion
+
+# endregion
