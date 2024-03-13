@@ -1,5 +1,8 @@
 
 
+# Dictionary Example
+
+# region Example 1
 release_year_movie = {
     'Fight Club': 1999,
     'The Matrix': 1999,
@@ -40,6 +43,10 @@ for value in release_year_movie:
 
 # region Bütün hepsinin çıktısını ekrana yazdıralım (tuple şeklinde yazdırır)
 print(release_year_movie.items())
+
+for i in release_year_movie.items():
+    print(i)
+
 # endregion
 
 
@@ -47,10 +54,16 @@ print(release_year_movie.items())
 for key, value in release_year_movie.items():
     print(f'Film ismi: {key}\n'
         f'Çıkış Tarihi: {value}')
+
+
+for i, j in release_year_movie.items():
+    print(i,j)
+
+# endregion
 # endregion
 
 
-# region Sözlüklerle ilgili alıştırmalar
+# region Example 2
 # Example 1
 plakalar = {"kocaeli": 41, "istanbul": 34}
 print(plakalar["kocaeli"])
@@ -94,8 +107,7 @@ for i, j in users.items():
 # endregion
 
 
-
-
+# region Example 3
 products = [
     {'name': 'Everlast Pro Boxing Gloves', 'price': 245},
     {'name': 'Everlast Training Gloves', 'price': 200},
@@ -154,12 +166,10 @@ for i in products:
     if i["name"].__contains__("Everlast"):
         if 240 < i["price"] < 500:
             print(f' Ürün ismi = {i["name"]}  Fiyatı = {i["price"]}')
+# endregion
 
 
-
-
-
-# region Example
+# region Example 4
 ogrenciler = {
     '120': {
         'ad': 'Ali',
@@ -209,7 +219,7 @@ else:
 # endregion
 
 
-# region Example
+# region Example 6
 sozluk = {"Bilim insanı":"Aziz Sancar", "Şair":"Mehmet Akif Ersoy", "Astronom":"Ali Kuşçu"}
 
 # region sozluk isimli sözlüğü meslekler isimli başka bir sözlüğe kopyalayınız ve ekrana yazdırınız
@@ -263,8 +273,7 @@ print(sozluk["Şair"])
 # endregion
 
 
-
-# region Example
+# region Example 7
 onemli_bilgiler = {"Acil Çağrı Merkezi":"112", "Polis İmdat":"155", "Milli Eğitim Bakanlığı İletişim Merkezi":"444 0 632"}
 
 # region önemli_bilgiler isimli sözlüğün değerlerini ekrana yazdırınız.
@@ -295,4 +304,362 @@ for i,j in onemli_bilgiler.items():
     print(i,j)
 # endregion
 
+# endregion
+
+
+# region Öğrenci sözlüğü oluşturun ve her yeni öğrenci kaydında sözlüğü güncelleyin
+ogrenci = {}
+
+while True:
+    islem = input("Yapmak istediğiniz işlemi seçiniz: (exit / create) ")
+    if islem == 'exit':
+        print("Döngüden çıkılıyor ve sonuç yazdırılıyor.")
+        break
+    elif islem == 'create':
+        print('Öğrenci kayıt bölümüne hoşgeldiniz!')
+        yeni_ogrenci = {
+            str(input("Numara giriniz:")): {
+                'ad': input("Ad girişi yapınız:"),
+                'soyad': input("Soyad girişi yapınız:"),
+                'telefon': input("Telefon numarası girişi yapınız:")
+            }
+        }
+
+        ogrenci.update(yeni_ogrenci)
+print(ogrenci)
+# endregion
+
+
+# region öğrenci id'lerini örnekteki sözlük tipine uygun olarak uuid4 ile yaratın
+
+# students = {
+#     'student_id': {
+#         'first_name': 'fdasa',
+#         'last name': 'fdsd',
+#         'phone': 'fdsfds'
+#     },
+#     'student_id': {
+#         'first name': 'fdasa',
+#         'last_name': 'fdfds',
+#         'phone': 'fdsfd'
+#     }
+# }
+
+
+from pprint import pprint
+from uuid import uuid4
+
+ogrenciler = {}
+while True:
+    print("Manuel Giriş:\n"
+            "/////////////\n"
+            "Yarat\n"
+            "Güncelle\n"
+            "Listele\n"
+            "Sil\n"
+            "Çıkış")
+
+    islem = input("Yapmak istediğiniz işlemi seçiniz:").lower()
+
+    if islem == 'yarat':
+        yeni_ogrenci = {
+            str(uuid4()): {
+        'adi' : input("Adını giriniz:"),
+        'soyadi' : input("Soyadını giriniz:"),
+        'telefon' : input("Telefon numarasını giriniz:")
+        }
+    }
+        ogrenciler.update(yeni_ogrenci)
+
+    elif islem == 'listele':
+        pprint(ogrenciler)
+
+    elif islem == 'güncelle':
+        ogrenci_id = input("Güncellenecek öğrenci ID'sini giriniz:")
+        if ogrenci_id in ogrenciler:
+            ogrenciler[ogrenci_id].update({
+                'adi': input("Yeni adını giriniz:"),
+                'soyadi': input("Yeni soyadını giriniz:"),
+                'telefon': input("Yeni telefon numarasını giriniz:")
+            })
+            print(f'{ogrenci_id} başarıyla güncellenmiştir..!')
+        else:
+            print(f'{ogrenci_id} ID\'siyle eşleşen öğrenci bulunamadı.')
+
+    elif islem == 'sil':
+        ogrenci_id = input("Öğrenci id'sini giriniz: ")
+        del ogrenciler[ogrenci_id]
+        print(f'{ogrenci_id} başarıyla silinmiştir!')
+
+    elif islem == 'çıkış':
+        print("Programdan çıkış yapılıyor.....")
+        break
+
+    else:
+        print("Geçerli işlem türünü giriniz.!")
+# endregion
+
+
+# region Example 10
+kullanici1 = {
+    'ad': 'Ferhat',
+    'soyad': 'Ibrik',
+    'uzmanlık': ['Front-End']
+}
+
+kullanici2 = {
+    'ad': 'Gökçe',
+    'soyad': 'Gün',
+    'uzmanlık': ['Tasarım']
+}
+
+kullanici3 = {
+    'ad': 'Mesut',
+    'soyad': 'Gün',
+    'uzmanlık': ['Front-End']
+}
+
+# region Ferhat Ibrik kullanıcısının uzmanlık alanın döndür
+print(kullanici1.get('uzmanlık'))
+
+print(kullanici1["uzmanlık"])
+# endregion
+
+
+# region Front-End alanındaki uzmanların isimlerini döndür
+kullaici_listesi = [kullanici1, kullanici2, kullanici3]
+for i in kullaici_listesi:
+    if i["uzmanlık"].__contains__("Front-End"):
+        print(i)
+
+
+for i in kullaici_listesi:
+    if i.get("uzmanlık").__contains__("Front-End"):
+        print(i)
+# endregion
+
+
+# region Mesut kullanıcısı uzmanlığına 'yazılım' bilgisini ekledi, bilgileri güncelle
+kullanici3.get("uzmanlık").append("yazılım")
+print(kullanici3)
+# endregion
+
+
+# region birden fazla uzmanlık alanı olan kullanıcıları döndür
+for i in kullaici_listesi:
+    if len(i.get("uzmanlık")) > 1:
+        print(i)
+# endregion
+# endregion
+
+
+# region Kitap bilgileri tutan sözlük oluşturun. her kitap için kitap adı, yazarı, yayın yılı ve ISBN numarası olsun. en az 3 kitap girilsin ve bilgiler ekrana yazdırılsın
+from pprint import pprint
+
+kitap_bilgileri = {}
+
+while True:
+    islem = input("İşlem türünü giriniz (exit/create/list): ")
+
+    if islem == 'exit':
+        print("Programdan çıkılıyor..")
+        break
+    elif islem == "create":
+        print("Sisteme hoşgeldiniz.")
+        kitap_adi = input("Kitap Adı: ")
+        yazarin_adi = input("Yazar: ")
+        yayin_yili = input("Yayın Yılı: ")
+        ISBN_numarasi = input("ISBN Numarası: ")
+
+        yeni_kitap = {
+            'kitap adı': kitap_adi,
+            'yazarı': yazarin_adi,
+            'yayın yılı': yayin_yili,
+            'ISBN numarası': ISBN_numarasi
+        }
+
+        kitap_bilgileri.update({kitap_adi: yeni_kitap})
+        pprint(kitap_bilgileri)
+
+    elif islem == 'list':
+        pprint(kitap_bilgileri)
+        break
+# endregion
+
+
+# region tek bir için öğrenci bilgi sistemi tasarla.öğrencinin bir öğrenci id'si, adı, soyadı ve aldığı derslerin bilgileri bulunsun. Her dersin adı, öğretmeni var. buna göre yap.
+from pprint import pprint
+from uuid import uuid4
+ogr_bilgi_sistemi = {}
+while True:
+    islem_turu = input("İşlem türünü giriniz(çıkış,oluştur,listele):")
+    if islem_turu == 'çıkış':
+        print("Sistemden çıkış yapılıyor..")
+        break
+    elif islem_turu == 'listele':
+        pprint(ogr_bilgi_sistemi)
+    elif islem_turu == 'oluştur':
+
+        yeni_ogr = {
+        str(uuid4()): {
+            'ad': input("Adı:"),
+            'soyad': input("Soyad:"),
+            'aldığı dersler': {
+                input("Aldığı dersler:"): {
+                    "ögretmen": input("öğretmen ismi:")
+                }
+            }
+        }
+    }
+
+        print(ogr_bilgi_sistemi.update(yeni_ogr))
+# endregion
+
+
+# region Bir film bilgi sistemi uygulaması yapalım. film adı, yönetmen, yayın yılı ve oyuncular bilgilerini içersin. Kullanıcıdan bu bilgileri alarak bir film ekleyelim.
+from uuid import uuid4
+film_bilgileri = {}
+
+film_id = str(uuid4())
+film_adi = input("Film adını giriniz:")
+yonetmen = input("Yönetmen adı giriniz:")
+yayin_yili = input("Yayın yılını giriniz:")
+oyuncular = input("Oyuncu isimlerini lütfen virgülle ayırarak giriniz:").split(",")
+
+film_bilgileri[film_id] = {
+    'film ID': film_id,
+    'film adı': film_adi,
+    'yönetmen': yonetmen,
+    'yayın yılı': yayin_yili,
+    'oyuncular': oyuncular
+}
+
+print(film_bilgileri)
+# endregion
+
+
+# region Bir restoran menüsü oluştur. Yemek ismi, fiyatı ve içeriği olsun. Kullanıcıdan bir yemek ismi alın ve bu yemeğin fiyatını ve içeriğini listele. Menüye yemek eklesin.
+from pprint import pprint
+restoran_menusu = {}
+print("Lütfen siparişiniz ile ilgili yapmak istediğiniz işlemi belirtiniz:\n"
+        "*****************\n"
+        "Sepetim\n"
+        "Oluştur\n"
+        "Güncelle\n"
+        "Sil\n"
+        "Çıkış")
+
+while True:
+    siparis_islemi = input("Sipariş işleminizi girmek için buraya tıklayın:").lower()
+
+    if siparis_islemi == 'oluştur':
+        siparis_adi = input("Siparişe isim veriniz:")
+        Yemek_adi = input("İstediğiniz yemeği giriniz:")
+        icerigi = input("Yemek içeriğini giriniz:")
+        fiyati = input("Fiyatı:")
+
+        restoran_menusu[siparis_adi] = {
+            'Yemek adı': Yemek_adi,
+            'İçeriği': icerigi,
+            'Fiyatı': fiyati
+        }
+
+    elif siparis_islemi == 'sepetim':
+        print(restoran_menusu)
+
+    elif siparis_islemi == 'güncelle':
+        siparis_adi = input("Sipariş adını giriniz:")
+        Yemek_adi = input("Yeni istediğiniz yemeği giriniz:")
+        icerigi = input("Yemek içeriğini giriniz:")
+        fiyati = input("Fiyatı:")
+
+        restoran_menusu.update({
+            'Sipariş adı': siparis_adi,
+            'Yemek adı': Yemek_adi,
+            'İçeriği': icerigi,
+            'Fiyatı': fiyati
+        })
+
+        print(f'{siparis_adi} adlı siparişiniz başarıyla oluşturuldu.')
+    elif siparis_islemi == 'sil':
+        siparis_adi = input("Sipariş adını giriniz:")
+        del restoran_menusu[siparis_adi]
+
+    elif siparis_islemi == 'çıkış':
+        print("Uygulamadan çıkılıyor..Yine bekleriz...")
+        break
+
+    else:
+        print("Lütfen geçerli sipariş türünü giriniz..!")
+# endregion
+
+
+# region öğrenci not defteri uygulaması yap. Her öğrencinin bir ID'si olacak ve bu ID'ye göre öğrenci bilgileri saklanacak.ad, soyad, doğum yılı, sınıfı, ders adı ve notu.
+from uuid import uuid4
+from pprint import pprint
+
+not_defteri = {}
+print("Not defterine hoşgeldiniz. Lütfen devam etmek istediğiniz işlemleri seçiniz:\n"
+        "---------WELCOME--------\n"
+        "oluştur\n"
+        "güncelle\n"
+        "listele\n"
+        "sil\n"
+        "çıkış")
+
+while True:
+    islem = input("Yapmak istediğiniz işlemi giriniz:")
+
+    if islem == 'oluştur':
+        ogrenciID = str(uuid4())
+        ad = input("Adı:")
+        soyad = input("Soyadı:")
+        dogum_yili = input("Doğum yılı:")
+        sinifi = input("Sınıfı:")
+        dersleri = input("Aldığı dersleri ve notları virgülle ayırarak giriniz:").split(",")
+
+        not_defteri[ogrenciID] = {
+            'Ad': ad,
+            'Soyad': soyad,
+            'Doğum yılı': dogum_yili,
+            'Sınıfı': sinifi,
+            'Dersleri': dersleri
+        }
+
+        print("Öğrenci kaydı başarıyla oluşturuldu.")
+
+    elif islem == 'listele':
+        pprint(not_defteri)
+
+    elif islem == 'güncelle':
+        ogrenciID = input("Öğrenci ID'sini giriniz:")
+        ad = input("Adı:")
+        soyad = input("Soyadı:")
+        dogum_yili = input("Doğum yılı:")
+        sinifi = input("Sınıfı:")
+        dersleri = input("Aldığı dersler ve notlar:")
+
+        not_defteri.update({
+            ogrenciID: {
+                'Ad': ad,
+                'Soyad': soyad,
+                'Doğum yılı': dogum_yili,
+                'Sınıfı': sinifi,
+                'Dersleri': dersleri
+            }
+        })
+
+        print(f'{ogrenciID} başarıyla güncellenmiştir.')
+
+    elif islem == 'sil':
+        ogrenciID = input("Öğrenci ID'sini giriniz:")
+        not_defteri.pop(ogrenciID)
+        print(f'{ogrenciID} başarıyla silinmiştir.')
+
+    elif islem == 'çıkış':
+        print("Programdan çıkılıyor...")
+        break
+
+    else:
+        print("Lütfen geçerli işlem türünü giriniz!")
 # endregion

@@ -221,7 +221,7 @@ a.count(2)  # 2 sayısı kaç kere tekrarlanıyor ona baktık
 
 
 # Sözlük (Dictionary)
-
+from pprint import pprint
 dil = {
         "Ali": "ingilizce",
         "Can": "almanca",
