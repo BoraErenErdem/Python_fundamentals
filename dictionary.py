@@ -663,3 +663,132 @@ while True:
     else:
         print("Lütfen geçerli işlem türünü giriniz!")
 # endregion
+
+
+# region Öğrenci uygulaması oluşturalım. Her öğrencimizin adı, soyadı, yaş ve hobileri yer alsın. öğrenciler için arayüz oluştur.
+ogr = {}
+
+print("Öğrencim uygulamasına hoşgeldiniz.Lütfen devam etmek istediğiniz işlemi seçiniz:\n"
+        "----H O Ş G E L D İ N İ Z----\n"
+        "1:Yeni öğrenci ekle\n"
+        "2:Öğrencileri listele\n"
+        "3:Öğrencileri güncelle\n"
+        "4:Öğrenci sil\n"
+        "5:Programdan çıkış yap")
+
+while True:
+    secim = input("Yapmak istediğiniz işlem numarasını giriniz:").lower()
+
+    if secim == '1':
+        adi = input("Adınız:")
+        soyadi = input("Soyadınız:")
+        yasi = input("Yaşınız:")
+        hobiler = input("lütfen hobilerinizi virgülle belirtiniz:").split(",")
+
+        ogr[adi] = {
+            'Adı': adi,
+            'Soyadı': soyadi,
+            'Yaşı': yasi,
+            'Hobileri': hobiler
+        }
+
+        print(f'{ogr[adi]} isimli öğrenci başarıyla kaydedildi.')
+
+    elif secim == '2':
+        print(ogr)
+
+    elif secim == '3':
+        adi = input("Güncellenecek öğrencinin adını giriniz:")
+        if adi in ogr:
+            soyadi = input("Soyadınız:")
+            yasi = input("Yaşınız:")
+            hobiler = input("lütfen hobilerinizi virgülle belirtiniz:").split(",")
+
+            ogr.update({
+                adi: {
+                    'Soyadı': soyadi,
+                    'Yaşı': yasi,
+                    'Hobileri': hobiler
+                }
+            })
+
+            print(f'{ogr[adi]} başarıyla güncellendi.')
+
+        else:
+            print("Güncellenecek öğrenci bulunamadı..!")
+
+    elif secim == '4':
+        adi = input("Öğrencinin adını giriniz:")
+        del ogr[adi]
+        print(f'{adi} adlı öğrenci başarıyla silinmiştir.')
+
+    elif secim == '5':
+        print("Programdan çıkış yapılyor..!")
+        break
+
+    else:
+        print("Lütfen menüde yer alan geçerli seçimleri yapınız.")
+# endregion
+
+
+# region retorant menüsü oluştur. 3 farklı yemek olsun ve adları, fiyatları, içeriği olsun. menü oluştur ve sipariş al. siparişten sonra fiyatı ekrana yazsın
+from pprint import pprint
+restorant_menu = {
+    'Soslu Makarna': {
+        'içeriği': ['napoliten sos, domates salçası, tuz, sirke, şeker, karabiber, soğan, sarımsak'],
+        'Fiyat': 120
+    },
+    'Patates Köfte': {
+        'içeriği': ['1 adet yumurta, 1 adet orta boy soğan, kimyon, karabiber, yarım demet maydonoz, hafif acılı elma dilim patates'],
+        'Fiyat': 180
+    },
+    'Mercimek Çorbası': {
+        'içeriği': ['1 adet soğan, 1 adet havuç, 1 adet patates, tuz, karabiber, 2 kaşık sıvıyağ'],
+        'Fiyat': 80
+    }
+}
+print("Restorantımıza hoşgeldiniz.\n"
+        "Sipariş oluşturmak için: 1\n"
+        "Siparişlerimi görüntülemek için: 2\n"
+        "Siparişlerimi güncellemek için: 3\n"
+        "Siparişimi silmek için: 4\n"
+        "Çıkış için: 5")
+
+while True:
+    musteri = input("Yapmak istediğinizi işlem numarasını giriniz:")
+
+    if musteri == '1':
+        print("Mevcut menü:")
+        pprint(restorant_menu)
+        siparis_ani = input("İstediğiniz menüleri girin:")
+        if siparis_ani == 'Soslu Makarna':
+            print(f'Ödeyeceğiniz fiyat: {restorant_menu['Soslu Makarna'].get("Fiyat")}')
+        elif siparis_ani == 'Patates Köfte':
+            print(f'Ödeyeceğiniz fiyat: {restorant_menu['Patates Köfte'].get("Fiyat")}')
+        elif siparis_ani == 'Mercimek Çorbası':
+            print(f'Ödeyeceğiniz fiyat: {restorant_menu['Mercimek Çorbası']["Fiyat"]}')
+        else:
+            print("Sadece menüde yer alan yemekleri tercih edebilirsiniz..!")
+
+    elif musteri == '2':
+        pprint(restorant_menu)
+
+    elif musteri == '3':
+        yemek_adi = input("Yeni yemek adını giriniz:")
+        if yemek_adi in restorant_menu:
+            print("Siparişiniz başarıyla güncellenmiştir..")
+        else:
+            print("Sadece menümüzde bulunan yemeklerden sipariş verebilirsiniz!")
+
+    elif musteri == '4':
+        yemek_adi = input("Silmek istediğiniz yemeğin adını giriniz:")
+        del restorant_menu[yemek_adi]
+        print("Başarıyla silinmiştişr..")
+
+    elif musteri == '5':
+        print("Çıkış yapılıyor. Yine bekleriz...")
+        break
+
+    else:
+        print("Lütfen geçerli numaraları giriniz..!")
+# endregion
