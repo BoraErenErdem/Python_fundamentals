@@ -8,7 +8,6 @@
 
 
 
-
 # region DRY (Don't Repeat Yourself)
 # "Kendini Tekrar Etme" anlamına gelir ve bir yazılım geliştirme prensibidir. Bu prensip, bir yazılım projesindeki kodun tekrarlanmasını önlemeyi ve karmaşıklığı azaltmayı amaçlar. DRY prensibi, kodun tekrarlanması yerine, ortak kod parçalarının birleştirilmesi ve yeniden kullanılabilir hale getirilmesi gerektiğini vurgular. Bu sayede, kodun bakımı ve değiştirilmesi daha kolay hale gelir, hataların tekrarlanma olasılığı azalır ve kodun genel kalitesi artar. Bu prensip, yazılım geliştirme sürecinde daha verimli ve sürdürülebilir bir yaklaşım benimsemeyi teşvik eder.
 
