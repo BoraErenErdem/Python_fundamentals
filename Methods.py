@@ -197,6 +197,26 @@ x.replace("w", "W")
 
 
 
+
+esyalar = [['dolap', 'ütü', 'fön'],
+            ['telefon', 'televizyon', 'klima'],
+            ['ütü masası', 'bulaşık makinası', 'çamaşır makinası']]
+
+print(f'eşyalar listesinin orjinali = {esyalar}')
+print()
+
+liste = []
+
+for i in esyalar:
+    for j in i[::-1]:
+        liste.append(j)
+print(f"eşyalar listesinin herbir elemanının ters çevrilmiş şeklini tek bir liste haline getirdik = {liste}")
+
+
+
+
+
+
 # Tuple (Demetler)
 
 # () parantez ile gösterilir.
