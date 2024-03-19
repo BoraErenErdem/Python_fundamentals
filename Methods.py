@@ -42,12 +42,17 @@ print(x.replace("dem", "en"))  # string yerine başka bir string koymak için ku
 print(x.index("r"))  # karakterin indexini bulmak istersek kullanırız
 print(x.title())  # her kelimenin baş harfi büyük karaktere çevrilir
 print(x.capitalize())  # sadece ilk kelimenin baş harfi büyük olur gerisi küçük olur
-print(x.split())  # string ifadeleri ayırıp parçalıyor ve liste oluşturuyor
+print(x.split())  # .split() metodu string ifadeleri ayırıp parçalıyor ve liste oluşturuyor
+print((x.join()))  # .join() metodu string ifadelerde kullanılır. Liste elemanlarını birleştirir (splitin tam tersi)
 print(x.isalpha())  # isalpha() metodu, bir string içindeki tüm karakterlerin alfabetik olup olmadığını kontrol eder. Eğer tamamen harflerden oluşuyorsa True, aksi takdirde False döndürür. Ayrıca string içinde boşluk varsa yine False çıktısı verir
 
 
 # -------------------------------------------------------------------------- #
 ### Listeler ###
+
+# sort() metodu orijinal listeyi değiştirirken, sorted() fonksiyonu orijinal listenin kopyasını sıralar ve bu sıralanmış kopyayı döndürür, orijinal listeyi değiştirmez.
+# sort() metodu return olduğu zaman "None" değeri döndürür. sordet() fonksiyonu ise sıralanmış kopyayı döndürür ve sıralanmış bir liste döndürmüş olur.
+
 # index örnekleri
 liste = ["bora", 2001, True]
 type(liste)
