@@ -1,6 +1,6 @@
 
 
-sifre = "547893"
+sifre = "812094"
 
 flag = False
 
@@ -15,7 +15,7 @@ for basamak1 in rakamlar:
                         deneme = (basamak1+basamak2+basamak3+basamak4+basamak5+basamak6)
                         print(deneme)
                         if deneme == sifre:
-                            print("Parolanız: " +deneme)
+                            print("Parolanız: " + deneme)
                             flag = True
                             break
                     if flag == True:
